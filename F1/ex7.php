@@ -2,7 +2,7 @@
 <html lang="en" >
 	<head>
 		<meta charset="utf-8" />
-		<title>PHP</title>
+		<title>F1 Exempel 7</title>
 		<style>
 			img { width: 10%; height: 10%; }
 		</style>
@@ -23,6 +23,13 @@
 		
 			<?php
 				//Här kommer koden...
+
+				/*
+					Att öva på egen hand.
+
+					Kontrollera om en specifik länk är tryck och skriv ut värdet som kommer till servern.
+					
+				*/
 			?>
 			
 		</div>

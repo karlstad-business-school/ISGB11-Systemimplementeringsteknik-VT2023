@@ -2,7 +2,7 @@
 <html lang="en" >
 	<head>
 		<meta charset="utf-8" />
-		<title>F1 Exempel 5</title>
+		<title>F1 Exempel 6</title>
 	</head>
 	<body>
 		<div>
@@ -23,6 +23,13 @@
 
 			<?php
 				//Här kommer koden...
+
+				/*
+					Att öva på egen hand.
+
+					Kontrollera om en specifik submit-knapp är tryck och skriv ut värdet som kommer till servern.
+					
+				*/
 			?>
 			
 		</div>
