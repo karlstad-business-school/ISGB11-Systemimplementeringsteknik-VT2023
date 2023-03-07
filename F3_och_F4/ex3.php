@@ -26,6 +26,7 @@
 	}
 
 	//Här kommer koden från F3...
+    session_start();
 
 	//Skapa variabler med default-värden
 	$disabled = true;
@@ -41,8 +42,11 @@
 		$fgColor = $_POST["foregroundcolor"];
 
 		//Skapa två kakor med färgerna
-		setcookie("fgColor", $fgColor, time() + 3600);
-		setcookie("bgColor", $bgColor, time() + 3600);
+		//setcookie("fgColor", $fgColor, time() + 3600);
+		//setcookie("bgColor", $bgColor, time() + 3600);
+
+        $_SESSION["fgColor"] = $fgColor;
+        $_SESSION["bgColor"] = $bgColor;
 
 		//Sätt om variabelvärdena
 		$css = "body { color: $fgColor; background-color: $bgColor; }";
@@ -51,11 +55,14 @@
 	}
 
 	//Användaren har tryckt på submit-knappen btnReset OCH kakorna kommer till servern
-	if( isset( $_POST["btnReset"] && isset( $_COOKIE["bgColor"]) && isset( $_COOKIE["fgColor"] ) ) {
+	if( isset( $_POST["btnReset"] ) && isset( $_SESSION["bgColor"]) && isset( $_SESSION["fgColor"] ) ) {
 
 		//Radera kakorna
-		setcookie("fgColor", "", time() - 3600);
-		setcookie("bgColor", "", time() - 3600);
+		//setcookie("fgColor", "", time() - 3600);
+		//setcookie("bgColor", "", time() - 3600);
+        //session_unset();
+        //session_destroy();
+        deleteSession();
 
 	}
 
@@ -63,12 +70,12 @@
 	//kakorna bgColor och fgColor med.
 	if( !isset( $_POST["btnSend"] ) && 
 		!isset( $_POST["btnReset"] ) && 
-		isset( $_COOKIE["bgColor"] ) && 
-		isset( $_COOKIE["fgColor"]) ) {
+		isset( $_SESSION["bgColor"] ) && 
+		isset( $_SESSION["fgColor"]) ) {
 
 		//Hämta data från kakorna
-		$bgColor = $_COOKIE["bgColor"];
-		$fgColor = $_COOKIE["fgColor"];
+		$bgColor = $_SESSION["bgColor"];
+		$fgColor = $_SESSION["fgColor"];
 
 		//Sätt om variabelvärden
 		$css = "body { color: $fgColor; background-color: $bgColor; }";
